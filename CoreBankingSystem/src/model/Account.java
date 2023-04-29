@@ -4,16 +4,14 @@ public class Account {
 	
 	private String accountType;
 	private Integer accountNumber;
-	private Branch  accountBranch;
-	private double accountBalance;
+	private String  accountBranch;
 	
 	
-	public Account(String accountType, Integer accountNumber, Branch accountBranch,double accountBalance) {
+	public Account(String accountType, Integer accountNumber, String accountBranch) {
 		super();
 		this.accountType = accountType;
 		this.accountNumber = accountNumber;
 		this.accountBranch = accountBranch;
-		this.accountBalance = accountBalance;
 	}
 
 
@@ -37,25 +35,13 @@ public class Account {
 	}
 
 
-	public Branch getAccountBranch() {
+	public String getAccountBranch() {
 		return accountBranch;
 	}
 
 
-	public void setAccountBranch(Branch accountBranch) {
+	public void setAccountBranch(String accountBranch) {
 		this.accountBranch = accountBranch;
 	}
-
-
-	public double getAccountBalance() {
-		return accountBalance;
-	}
-
-
-	public void setAccountBalance(double accountBalance) {
-		this.accountBalance = accountBalance;
-	}
-	
-	
 
 }

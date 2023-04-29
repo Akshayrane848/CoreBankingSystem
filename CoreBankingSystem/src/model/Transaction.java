@@ -5,8 +5,62 @@ import java.sql.Time;
 public class Transaction {
 	
 	private Time timestrap;
+	private String customerName;
+	private String bankname;
+	private Integer accountNumber;
 	private String senderBranch;
 	private String receiverBranch;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	private Integer amount;
 	
 	

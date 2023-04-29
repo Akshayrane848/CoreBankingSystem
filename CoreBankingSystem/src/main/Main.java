@@ -34,12 +34,13 @@ public class Main {
 		switch (rest) {
 		  case 1:
 		    System.out.println(ANSI_GREEN+"======WECOME TO ADMIN SECTION======"+ ANSI_RESET);
-		    System.out.println();  
+		    System.out.println(); 
+		    adminTask();
 		    break;
 		  case 2:
 		    System.out.println(ANSI_GREEN+"======WELCOME TO CUSTOMER SECTION======"+ ANSI_RESET);
 		    System.out.println();
-		    
+		    CustomerTask();
 		    break;
 		  case 9:
 		    System.out.println(ANSI_GREEN+"======THANK YOU======"+ ANSI_RESET);
@@ -75,7 +76,8 @@ public class Main {
 			
 			switch (rest) {
 			  case 1:
-			    ad.addBranch();;
+			    ad.addBranch();
+			    adminTask();
 			    break;
 			  case 2:
 				
@@ -119,9 +121,55 @@ public class Main {
 				  System.out.println(ANSI_RED +"INVALID SELECTION PLEASE SELECT RIGHT ONE" + ANSI_RESET);
 				  adminTask();
 			}
-			
 	 }
 	
+	public static void CustomerTask() {
+		 
+		 System.out.println(ANSI_RED +"PLEASE SELECT ONE OPTION" + ANSI_RESET);
+		 System.out.println();
+		 
+		 System.out.println("1. Customer Registration ");
+		 System.out.println("2. View Bank ");
+		 System.out.println("3. View Branch ");
+		 System.out.println("4. Add Account ");
+		 System.out.println("0. GO BACK");
+		 System.out.println("10. MAINMENU");
+		 System.out.println("9. EXIT");
+		 System.out.println(ANSI_BLUE+"ENTER YOUR OPTION ON NEXT LINE"+ANSI_RESET);
+		 
+		 Usecase us = new Usecase();
+		 
+		 int day = sc.nextInt();
+			switch (day) {
+			  case 1:
+			   
+			    break;
+			  case 2:
+				
+				    break;  
+			  case 3:
+					us.viewBraches();
+					CustomerTask();
+					    break; 	
+			  case 4:
+				  us.addAccount();
+				  CustomerTask();
+					    break;
+			  case 0:
+			    mainMenu();
+			    break;
+			  case 10:
+				mainMenu();
+				break;
+			  case 9:
+				System.out.println(ANSI_GREEN+"======THANK YOU======"+ ANSI_RESET);
+				System.out.println(ANSI_GREEN+"======WELCOME======"+ ANSI_RESET);
+				break;
+			  default:
+				System.out.println(ANSI_RED +"INVALID SELECTION PLEASE SELECT RIGHT ONE" + ANSI_RESET);
+			    //adminAuthorizetion();
+			}
 	
+	}
 
 }

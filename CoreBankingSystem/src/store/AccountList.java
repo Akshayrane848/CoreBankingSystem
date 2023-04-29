@@ -45,7 +45,7 @@ public class AccountList {
     
     public void viewAllAccounts() {
     	for (int i = 0; i < size; i++) {
-    		System.out.println("Account Number"+ accountList[i].getAccountNumber() + "Account Type"+ accountList[i].getAccountType()+"Account Branch"+accountList[i].getAccountBranch()+"Account Balance"+accountList[i].getAccountBalance());
+    		System.out.println("Account Number"+ accountList[i].getAccountNumber() + "Account Type"+ accountList[i].getAccountType());
     		System.out.println("***********************************");
     	}
     }
