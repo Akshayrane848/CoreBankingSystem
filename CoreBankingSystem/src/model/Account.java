@@ -3,15 +3,16 @@ package model;
 public class Account {
 	
 	private String accountType;
-	private Integer accountNumber;
+	private int accountNumber;
 	private String  accountBranch;
 	
 	
-	public Account(String accountType, Integer accountNumber, String accountBranch) {
+	public Account(String accountType, int accountNumber, String accountBranch) {
 		super();
 		this.accountType = accountType;
 		this.accountNumber = accountNumber;
 		this.accountBranch = accountBranch;
+		
 	}
 
 
@@ -25,12 +26,12 @@ public class Account {
 	}
 
 
-	public Integer getAccountNumber() {
+	public int getAccountNumber() {
 		return accountNumber;
 	}
 
 
-	public void setAccountNumber(Integer accountNumber) {
+	public void setAccountNumber(int accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 
@@ -42,6 +43,7 @@ public class Account {
 
 	public void setAccountBranch(String accountBranch) {
 		this.accountBranch = accountBranch;
-	}
+	}	
+	
 
 }

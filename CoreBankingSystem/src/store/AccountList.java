@@ -12,13 +12,39 @@ public class AccountList {
         this.accountList = new Account[capacity];
         this.size = 0;
     }
+    
+    
 
-    public void addAccount(Account account) throws ExceptionHandlar{
-        if (this.size < accountList.length) {
-            accountList[size++] = account;
-        } else {
-            throw new ExceptionHandlar("Account capacity is full");
-        }
+    public Account[] getAccountList() {
+		return accountList;
+	}
+
+
+
+	public void setAccountList(Account[] accountList) {
+		this.accountList = accountList;
+	}
+
+
+
+	public int getSize() {
+		return size;
+	}
+
+
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+
+
+	public void addAccount(Account account) throws ExceptionHandlar{
+		 if (this.size < accountList.length) {
+	            accountList[size++] = account;
+	        } else {
+	            throw new ExceptionHandlar("Account capacity is full");
+	        }
     }
 
     public void deleteAccount(int accountNumber) throws ExceptionHandlar {
@@ -45,14 +71,14 @@ public class AccountList {
     
     public void viewAllAccounts() {
     	for (int i = 0; i < size; i++) {
-    		System.out.println("Account Number"+ accountList[i].getAccountNumber() + "Account Type"+ accountList[i].getAccountType());
+    		System.out.println("Account Number"+ accountList[i].getAccountNumber() + "Account Type"+ accountList[i].getAccountType()+"Account Branch"+accountList[i].getAccountBranch()+"Account Balance");
     		System.out.println("***********************************");
     	}
     }
 
-    public void modifyAccountDetails(String accountNumber, String accountType) throws ExceptionHandlar{
+    public void modifyAccountDetails(int accountNumber, String accountType) throws ExceptionHandlar{
         for (int i = 0; i < size; i++) {
-            if (accountList[i].getAccountNumber().equals(accountNumber)) {
+            if (accountList[i].getAccountNumber() == (accountNumber)) {
             	accountList[i].setAccountType(accountType);
                 System.out.println("Account details modified successfully.");
                 return;

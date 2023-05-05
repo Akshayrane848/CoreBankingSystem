@@ -4,8 +4,8 @@ import model.Branch;
 
 public class BankBranchList {
 
-		private static Branch[] branches;
-	   private static int numBranches;
+	private Branch[] branches;
+	   private int numBranches;
 
 	   public BankBranchList(int size) {
 	      this.branches = new Branch[size];
