@@ -1,5 +1,5 @@
 
-#CBS - Core Banking System(console base project)
+# CBS - Core Banking System(console base project)
 
 ![TABLES](https://github.com/Akshayrane848/CoreBankingSystem/blob/main/Images/chema.PNG)
 This is table relationship use in project. 
