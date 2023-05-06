@@ -53,30 +53,15 @@ public class AccountList {
                 accountList[i] = accountList[size-1];
                 accountList[size-1] = null;
                 size--;
+                System.out.println("Account delete succefully Account Number "+ accountNumber);
                 return;
             }
         }
         throw new ExceptionHandlar("Account not found with this accountNumber");
     }
-
-    public Account findAccount(int accountNumber) throws ExceptionHandlar{
-        for (int i = 0; i < size; i++) {
-            if (accountList[i].getAccountNumber() == accountNumber) {
-                return accountList[i];
-            }
-        }
-        throw new ExceptionHandlar("Account not found with this accountNumber");
-    }
     
-    
-    public void viewAllAccounts() {
-    	for (int i = 0; i < size; i++) {
-    		System.out.println("Account Number"+ accountList[i].getAccountNumber() + "Account Type"+ accountList[i].getAccountType()+"Account Branch"+accountList[i].getAccountBranch()+"Account Balance");
-    		System.out.println("***********************************");
-    	}
-    }
 
-    public void modifyAccountDetails(int accountNumber, String accountType) throws ExceptionHandlar{
+    public void modifyAccountDetails(int accountNumber, String accountType) {
         for (int i = 0; i < size; i++) {
             if (accountList[i].getAccountNumber() == (accountNumber)) {
             	accountList[i].setAccountType(accountType);
@@ -84,7 +69,7 @@ public class AccountList {
                 return;
             }
         }
-        throw new ExceptionHandlar("Account with account number " + accountNumber + " not found.");
+        System.out.println("Account with account number " + accountNumber + " not found.");
     }
 
 

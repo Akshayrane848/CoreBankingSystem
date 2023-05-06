@@ -21,7 +21,26 @@ public class Main {
 	
 	static Scanner sc = new Scanner(System.in);
 	
-	
+	static {
+		
+		System.out.println();
+		System.out.println();
+
+		System.out.println("          *****-*****-******-*****-*****-******-*****-*****-******-*****");
+		
+		System.out.println();
+
+		System.out.println(ANSI_YELLOW
+                + "                   \u001B[1m WELCONE TO ONLINE BANKING"
+                + ANSI_RESET);
+		System.out.println();
+
+		System.out.println("          *****-*****-******-*****-*****-******-*****-*****-******-*****");
+		
+		System.out.println();
+		System.out.println();
+	 
+ }
 	
 	public static void main(String[] args) {
 		CustomerUsecase us= new CustomerUsecase();
@@ -68,8 +87,9 @@ public class Main {
 		 	System.out.println("1. DISPLAY ALL THE ACCOUNT HOLDER WITH BALANCE");
 			System.out.println("2. DISPLAY ALL DEPENDENT DETAILS.");
 			System.out.println("3. ALL THE CUSTOMERS WHO HAVE BALANCE GREATER THAN 10000 ");
-			System.out.println("4. FUND TRANSFER BETWEEN ACCOUNT SAME BRANCH ");
-			System.out.println("5. FUND TRANSFER BETWEEN ACCOUNT DIFFERENT BRANCH ");
+			System.out.println("4. VIEW FUND TRANSFER BETWEEN ACCOUNT SAME BRANCH ");
+			System.out.println("5. VIEW12 FUND TRANSFER BETWEEN ACCOUNT DIFFERENT BRANCH ");
+			System.out.println("6. DELETE ACCOUNT ");
 			System.out.println("0. GO BACK");
 			System.out.println("10. MAINMENU");
 			System.out.println("9. EXIT");
@@ -86,8 +106,8 @@ public class Main {
 			    adminTask();
 			    break;
 			  case 2:
-				 
-				
+				us.viewDependent();
+				adminTask();
 			    break;
 			  case 3:
 				us.customerBalanceGreater10000();
@@ -101,6 +121,10 @@ public class Main {
 				us.viewFundTransferDiffBranch();
 				adminTask();
 				break;
+			  case 6:
+			    us.deleteAccount();
+			    adminTask();
+				break;	
 			  case 0:
 				  adminTask();
 			    break;
@@ -148,27 +172,27 @@ public class Main {
 		    Customer();
 		    break;
 		  case 7:
-			    us.fundTransfer();
-			    Customer();
-			    break;
+			us.fundTransfer();
+			 Customer();
+			 break;
 		  case 3:
 			us.addAccount();
 			Customer();
 			break;
 		  case 4:
-				us.modifyAccount();
-				Customer();
-				break;
+			us.modifyAccount();
+			Customer();
+			break;
 		  case 5:
-				us.viewAccount();
-				Customer();
-				break;
+			us.viewAccount();
+			Customer();
+			break;
 		  case 6:
-				us.viewTransactions();
-				Customer();
-				break;
+			us.viewTransactions();
+			Customer();
+			break;
 		  case 0:
-			  Customer();
+			Customer();
 		    break;
 		  case 10:
 			mainMenu();

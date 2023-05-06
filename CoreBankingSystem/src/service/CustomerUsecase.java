@@ -60,13 +60,6 @@ public class CustomerUsecase {
 			e.printStackTrace();
 		}
 		
-		try {
-			walletList.addWallet(new Wallet("Akshay", 2231, 500, "Icici", "icici"));
-		} catch (ExceptionHandlar e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 	}
 	
 	public void credit() {
@@ -192,21 +185,28 @@ public class CustomerUsecase {
 			}
 		}
 		if(flag) {
-			System.out.println("Enter valid adhar Number");
+			System.out.println("Enter valid Details");
 		}
 	}
 	
 	public  void allAccountHolderwithBalance() {
+		boolean flag = true;
 		for (int i=0; i<walletList.getSize();i++) {
 			System.out.println("hellow "+ walletList.getWalletList()[i].getCustomerName());
 			System.out.println("Account Number "+ walletList.getWalletList()[i].getAccountNumber());
 			System.out.println("Balance "+ walletList.getWalletList()[i].getBalace());
 			System.out.println("Bank  Name "+ walletList.getWalletList()[i].getBankName());
 			System.out.println("Branch Name "+ walletList.getWalletList()[i].getBranchName());
+			System.out.println("***************************************");
+			flag = false;
+		}
+		if(flag) {
+			System.out.println("No account found");
 		}
 	}
 	
 	public void customerBalanceGreater10000() {
+		boolean flag = true;
 		for (int i=0; i<walletList.getSize();i++) {
 			if(walletList.getWalletList()[i].getBalace() > 10000) {
 				System.out.println("Customer Name "+ walletList.getWalletList()[i].getCustomerName());
@@ -215,15 +215,21 @@ public class CustomerUsecase {
 				System.out.println("Bank  Name "+ walletList.getWalletList()[i].getBankName());
 				System.out.println("Branch Name "+ walletList.getWalletList()[i].getBranchName());
 				System.out.println("***************************************************");
+				flag = false;
 			}
+		}
+		if(flag) {
+			System.out.println("NO account found");
 		}
 	}
 	
 	public void viewTransactions() {
 		System.out.println("Enter Account Number");
 		int accountNumber = sc.nextInt();
+		boolean flag = true;
 		for(int i=0; i<transactionList.getSize();i++) {
 			if(transactionList.getTransactionList()[i].getAccountNumber() == accountNumber) {
+				flag = false;
 				System.out.println("Sender Name " + transactionList.getTransactionList()[i].getSenderName());
 				System.out.println("Reciever Name " + transactionList.getTransactionList()[i].getRecieverName());
 				System.out.println("Account Number " + transactionList.getTransactionList()[i].getAccountNumber());
@@ -235,6 +241,9 @@ public class CustomerUsecase {
 				System.out.println("************************************");
 			}
 		}
+		if(flag) {
+			System.out.println("No transaction found");
+		}
 	}
 	
 	public void modifyAccount() {
@@ -243,21 +252,14 @@ public class CustomerUsecase {
 		
 		System.out.println("Enter Account Type");
 		String accountType = sc.next();
-		
-		try {
 			accountList.modifyAccountDetails(accountNumber, accountType);
-			System.out.println("Your Account Update Successfully");
-		} catch (ExceptionHandlar e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 	
 	
 	public void viewAccount() {
 		System.out.println("Enter Account Number");
 		int accountNumber = sc.nextInt();
-		
+		boolean flag = true;
 		for (int i=0; i<walletList.getSize();i++) {
 			if(walletList.getWalletList()[i].getAccountNumber() == accountNumber) {
 				System.out.println("hellow "+ walletList.getWalletList()[i].getCustomerName());
@@ -265,7 +267,11 @@ public class CustomerUsecase {
 				System.out.println("Balance "+ walletList.getWalletList()[i].getBalace());
 				System.out.println("Bank  Name "+ walletList.getWalletList()[i].getBankName());
 				System.out.println("Branch Name "+ walletList.getWalletList()[i].getBranchName());
+				flag = false;
 			}
+		}
+		if(flag) {
+			System.out.println("Account is not register account number  " + accountNumber);
 		}
 	}
 	
@@ -308,6 +314,7 @@ public class CustomerUsecase {
 			for (int i=0; i<walletList.getSize();i++) {
 				if(walletList.getWalletList()[i].getAccountNumber() == rAccountNumber) {
 						walletList.getWalletList()[i].setBalace(walletList.getWalletList()[i].getBalace()+ amount);
+						System.out.println("Fund transfer succefully");
 						recievername = walletList.getWalletList()[i].getCustomerName();
 						recieverBranch = walletList.getWalletList()[i].getBranchName();
 				}
@@ -324,6 +331,7 @@ public class CustomerUsecase {
 	}
 	
 	public void viewFundTransferSameBranch() {
+		boolean flag = true;
 		for(int i=0;i<transactionList.getSize(); i++) {
 			if(transactionList.getTransactionList()[i].getSenderBranch() == transactionList.getTransactionList()[i].getRecieverBranch()) {
 				System.out.println("Sender Name " + transactionList.getTransactionList()[i].getSenderName());
@@ -331,15 +339,20 @@ public class CustomerUsecase {
 				System.out.println("Account Number " + transactionList.getTransactionList()[i].getAccountNumber());
 				System.out.println("Bank Name " + transactionList.getTransactionList()[i].getBankName());
 				System.out.println("Sender Branch " + transactionList.getTransactionList()[i].getSenderBranch());
-				System.out.println("Reciever Branch" + transactionList.getTransactionList()[i].getRecieverBranch());
+				System.out.println("Reciever Branch " + transactionList.getTransactionList()[i].getRecieverBranch());
 				System.out.println("Date and Time " + transactionList.getTransactionList()[i].getDateTimestrap());
 				System.out.println("Transaction Type "+ transactionList.getTransactionList()[i].getTransactionType());
 				System.out.println("************************************");
+				flag = false;
 			}
+		}
+		if(flag) {
+			System.out.println("No transaction found");
 		}
 	}
 	
 	public void viewFundTransferDiffBranch() {
+		boolean flag= true;
 		for(int i=0;i<transactionList.getSize(); i++) {
 			if(transactionList.getTransactionList()[i].getSenderBranch() != transactionList.getTransactionList()[i].getRecieverBranch()) {
 				System.out.println("Sender Name " + transactionList.getTransactionList()[i].getSenderName());
@@ -351,23 +364,49 @@ public class CustomerUsecase {
 				System.out.println("Date and Time " + transactionList.getTransactionList()[i].getDateTimestrap());
 				System.out.println("Transaction Type "+ transactionList.getTransactionList()[i].getTransactionType());
 				System.out.println("************************************");
+				flag = false;
 			}
+		}
+		if(flag) {
+			System.out.println("No transaction found" );
 		}
 	}
 	
 	public void deleteAccount() {
 		System.out.println("Enter Account Number");
 		int accountNumber = sc.nextInt();
+		boolean flag = true;
 		try {
-			accountList.deleteAccount(accountNumber);
 			for (int i=0; i<walletList.getSize();i++) {
 				if(walletList.getWalletList()[i].getAccountNumber() == accountNumber) {
-					walletList.getWalletList()[i] = walletList.getWalletList()[walletList.getSize()-1];
-					walletList.getWalletList()[walletList.getSize()-1] = null;
+					walletList.getWalletList()[i] = walletList.getWalletList()[walletList.getSize()];
+					walletList.getWalletList()[walletList.getSize()] = null;
+					accountList.deleteAccount(accountNumber);
+					flag = false;
 				}
 			}
 		} catch (ExceptionHandlar e) {
 			e.printStackTrace();
+		}
+		if(flag) {
+			System.out.println("account not found");
+		}
+	}
+	
+	public void viewDependent() {
+		boolean flag = true;
+		for(int i=0; i<customerList.getSize(); i++) {
+			System.out.println("customer Details");
+			System.out.println("Account Holder Name " + customerList.getCustomerList()[i].getAccountHolderName());
+			System.out.println("Customer Address " + customerList.getCustomerList()[i].getAddress());
+			System.out.println("Customer Dependent Details " + customerList.getCustomerList()[i].getDependendDetails());
+			System.out.println("Customer Adhar Number " + customerList.getCustomerList()[i].getAadhar());
+			System.out.println("Customer Pan Number " + customerList.getCustomerList()[i].getPanCard());
+			System.out.println("***************************************");
+			flag = false;
+		}
+		if(flag) {
+			System.out.println("NO customer found");
 		}
 	}
 }
