@@ -1,13 +1,14 @@
 
 # CBS - Core Banking System(console base project)
 
-![TABLES]((https://user-images.githubusercontent.com/105929244/236624599-9aab8dca-3a28-499f-8c5e-5ef58b7da249.PNG))
+![chema](https://user-images.githubusercontent.com/105929244/237011653-1251e469-0505-468c-9401-3c735dfe736a.PNG)
+
 ## This is table relationship use in project. 
 
 .
 
+![flow chat](https://user-images.githubusercontent.com/105929244/237011718-b79f7315-9bc2-4334-be23-2dfd4d0ad259.PNG)
 
-![FLOW]((https://user-images.githubusercontent.com/105929244/236624611-c30d31ba-e2f6-4d6d-b9d2-9cd76feb4cd6.PNG))
 ## this is schema chat use in project.
 
 .
